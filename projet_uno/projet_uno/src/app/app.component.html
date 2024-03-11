@@ -1,0 +1,17 @@
+<!-- app.component.html -->
+
+<div>
+  <h1>Items List</h1>
+  <ul>
+    <li *ngFor="let item of items">
+      <strong>{{ item.name }}</strong>: {{ item.description }}
+    </li>
+  </ul>
+
+  <h2>Add New Item</h2>
+  <form (submit)="addItem()">
+    <label>Name: <input type="text" [(ngModel)]="newItemName" name="name"></label><br>
+    <label>Description: <input type="text" [(ngModel)]="newItemDescription" name="description"></label><br>
+    <button type="submit">Add Item</button>
+  </form>
+</div>

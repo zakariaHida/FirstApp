@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-front
+  namespace: frontend-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular-front
+  template:
+    metadata:
+      labels:
+        app: angular-front
+    spec:
+      containers:
+      - name: angular-front
+        image: first-frontend:latest
+        ports:
+         - containerPort: 80
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        imagePullPolicy: Always
